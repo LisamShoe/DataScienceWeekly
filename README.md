@@ -8,3 +8,8 @@ googlecredentials.json
 redditcredentials.json
 secretkey.json
 sqlcreds.json# DataScienceWeekly
+
+
+Subscribe: http://datascienceweekly.pythonanywhere.com/
+
+To do: Add deploy instructions for other users

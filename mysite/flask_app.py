@@ -55,7 +55,7 @@ def index():
     smtpObj.sendmail(me, you, msg.as_string())
     smtpObj.quit()
 
-    return '<h1>The email you entered is {}. Please check your email for a confirmation. The token is {}. Link is {}</h1>'.format(email,token,link)
+    return '<h1>The email you entered is {}. Please check your email for a confirmation.</h1>'.format(email)
 
 @app.route('/confirm_email/<token>')
 def confirm_email(token):

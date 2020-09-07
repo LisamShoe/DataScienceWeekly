@@ -12,18 +12,6 @@ with open(os.path.dirname(__file__) + '/../secretkey.json') as f:
     secretkey = json.load(f)
 s = URLSafeTimedSerializer(secretkey['key'])
 
-#with open(os.path.dirname(__file__) + '/../sqlcreds.json') as f:
-#    sqlcreds = json.load(f)
-
-#mydb = mysql.connector.connect(
-#host=sqlcreds['host'],
-#user=sqlcreds['user'],
-#password=sqlcreds['password'],
-#database=sqlcreds['database']
-#)
-
-#mycursor = mydb.cursor()
-
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -123,7 +111,6 @@ def unsubscribe(token):
         email = s.loads(token, salt=secretkey['email-unsubscribe'])
         mycursor.execute("SELECT COUNT(*) FROM subscriberList WHERE email = '{}'".format(email))
         myresult = mycursor.fetchall()[0][0]
-        #return myresult
     except:
         mydb.close()
         return 'There seems to be something wrong.'
